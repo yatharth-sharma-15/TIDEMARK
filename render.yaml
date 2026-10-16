@@ -1,0 +1,25 @@
+# Render Blueprint. SQLite and screenshots live on a persistent disk, which needs a paid instance.
+# Chromium also wants roughly 1 GB of RAM, so start with "standard" if "starter" runs out of memory.
+services:
+  - type: web
+    name: tidemark
+    runtime: docker
+    plan: starter
+    healthCheckPath: /healthz
+    disk:
+      name: tidemark-data
+      mountPath: /data
+      sizeGB: 5
+    envVars:
+      - key: BASE_URL
+        sync: false          # e.g. https://tidemark.onrender.com
+      - key: WORKER_CONCURRENCY
+        value: "1"
+      - key: SMTP_URL
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false

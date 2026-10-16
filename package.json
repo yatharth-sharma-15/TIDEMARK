@@ -1,0 +1,26 @@
+{
+  "name": "tidemark",
+  "version": "1.0.0",
+  "description": "Website change detector: watches public pages and alerts on meaningful changes, ignoring noise.",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test tests/*.test.js",
+    "postinstall": "playwright install chromium || true"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "cheerio": "^1.0.0",
+    "diff": "^7.0.0",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "nodemailer": "^6.9.16",
+    "pixelmatch": "^6.0.0",
+    "playwright": "1.49.1",
+    "pngjs": "^7.0.0"
+  },
+  "license": "MIT"
+}
